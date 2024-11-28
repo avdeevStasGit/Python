@@ -13,6 +13,8 @@ ACRE_LAND = 4046.86
 meters_land = float(input("Введите общее количество квадратных " +
                           "метров участка земли: "))
 
+# Вычисляем количество акров в этом участке.
 acre_land_user = meters_land / ACRE_LAND
 
+# Вывод на экран.
 print(f'Акров в этом участке: {acre_land_user:.2f}')

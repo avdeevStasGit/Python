@@ -7,7 +7,7 @@
 
 name = input('Введите ваше имя: ')
 address = input("Введите адрес проживания, областью и почтовым индексом: ")
-telephone = int(input('Введите ваш номер телнфона: '))
+telephone = int(input('Введите ваш номер телефона: '))
 specialization = input('Введите вашу специализацию: ')
 
 print(f'Имя: {name} \n'

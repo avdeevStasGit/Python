@@ -14,9 +14,29 @@ product5 = 0.0
 # Общая стоимость преобретенных товаров.
 totalCostProducts = 0.0
 
-# Cумма налога с продаж.
-tax = 0.7
+# Константа для ставки налога с продаж.
+TAX = 0.07
 
 # Итоговая сумма.
 finalAmount = 0.0
 
+# Покупатель приобретает в магазине пять товаров.
+product1 = float(input('Введите цену первого товара: '))
+product2 = float(input('Введите цену второго товара: '))
+product3 = float(input('Введите цену третьего товара: '))
+product4 = float(input('Введите цену четвертого товара: '))
+product5 = float(input('Введите цену пятого товара: '))
+
+# Накопленная стоимость продуктов.
+totalCostProducts = (product1 + product2 + product3 +
+               product4 + product5)
+
+# Cумму налога с продаж.
+taxAmount = totalCostProducts * TAX
+
+# Итоговая сумма.
+finalAmount = totalCostProducts - taxAmount
+
+print(f'Накопленная стоимость продуктов: {totalCostProducts:.2f} \n' 
+      f'Cумма налога с продаж: {taxAmount:.2f} \n'
+      f'Итоговая сумма: {finalAmount:.2f}')

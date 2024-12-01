@@ -16,8 +16,8 @@ gasolineConsumption = 0.0
 driverKilometers = float(input('Введите число пройденых километров: '))
 driverPetrol = float(input('Введите расход бензина в литрах: '))
 
-kilometersTraveled = kilometersTraveled + driverKilometers
-gasolineConsumption = gasolineConsumption + driverPetrol
+kilometersTraveled = driverKilometers
+gasolineConsumption = driverPetrol
 
 # рассчитаываеем расход бензина автомобилем.
 expenditure = kilometersTraveled / gasolineConsumption

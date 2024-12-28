@@ -8,3 +8,26 @@
 # и 12 девушек, т. е. всего
 # 20 учащихся. Процент юношей можно рассчитать, как 8/20 = 0.4,
 # или 40%. Процент девушек: 12/20 = 0.6, или 60%.
+
+# Переменные для количества учащихся женского и мужского пола,
+# общего количества учащихся и процента учащихся
+# женского и мужского пола.
+studentsGirls = 0
+studentsBoys = 0
+totalStudents = 0
+percentageBoys = 0.0
+percentageGirls = 0.0
+
+# Запрашиваем количество учащихся мужского и женского пола в группе.
+studentsGirls = int(input('Девушек в группе: '))
+studentsBoys = int(input('Мальчиков в группе: '))
+
+# Всего студентов.
+totalStudents = studentsBoys + studentsGirls
+
+# Процент мальчиков и девочек
+percentageBoys = (studentsBoys / totalStudents) * 100
+percentageGirls = (studentsGirls / totalStudents) * 100
+
+print(f'Процент девушек: {percentageGirls:.2f}')
+print(f'Процент мальчиков: {percentageBoys}')

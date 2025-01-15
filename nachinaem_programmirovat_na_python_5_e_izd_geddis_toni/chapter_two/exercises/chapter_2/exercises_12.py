@@ -22,3 +22,33 @@
 # своему брокеру (оба раза). Если эта сумма — положительная,
 # то Джо получил прибыль. Если же
 # она — отрицательная, то Джо понес убытки.
+
+# Константы.
+NUMBER_SHARES_PURCHASED = 2000 # Число купленных акций пользователем.
+NUMBER_SHARES_SOLD = 2000 # Число купленных акций пользователем.
+PURCHASE_PRICE = 40.0 # Стоимость одной купленной акции.
+SELLING_PRICE = 42.75 # Продажа пользователем акции 42.75 за каждую акцию.
+COMMISSION_RATE_PURCHASE = 0.03 # Комиссия брокеру от суммы уплаченной
+                                # за акции.
+COMMISSION_RATE_SALE = 0.03 # Комиссия брокеру с продажи акций.
+
+# Переменные.
+
+# Сумма денег, уплаченная за акции.
+totalAmountShares = NUMBER_SHARES_PURCHASED * PURCHASE_PRICE
+# Сумма комиссии, уплаченная брокеру при покупке акций
+brokerСommissionPurchase = totalAmountShares * COMMISSION_RATE_PURCHASE
+# Сумма, за которую Джо продал акции.
+amountSaleShares = NUMBER_SHARES_SOLD * SELLING_PRICE
+# Cумма комиссии, уплаченной брокеру при продаже акций.
+brokerСommissionSale = amountSaleShares * COMMISSION_RATE_SALE
+# Вычислить общую сумму, которую Джо уплатил, т. е. сумму,
+# которую он уплатил за акции плюс комиссию, уплаченную брокеру.
+totalPaid = totalAmountShares + brokerСommissionPurchase
+# Вычислить сумму денег, оставшихся после того, как Джо
+# заплатил брокеру.
+totalReceived = amountSaleShares - brokerСommissionSale
+# Вычислить сумму дохода или убытка. Если эта сумма является
+# положительным числом, то это доход. Если она является
+# отрицательным числом, то это убыток.
+profitOrLoss = totalReceived - totalPaid

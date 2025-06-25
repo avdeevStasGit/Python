@@ -1,51 +1,55 @@
-# Imports.
+# Импорты
 import tarfile
 from requests import get
 import pandas as pd
 
-
-# Link to the log file.
+# Ссылка на архив лога
 url_test = "https://sysadmin.education-services.ru/downloads/nginx.log.tar.gz"
-# The name of the log file.
 file_name_test = "nginx.log.tar.gz"
 
-# Функция скачивание файла лога.
+# Функция скачивания файла
 def download(url, file_name):
-    with open (file_name, "wb") as file:
-        response = get(url)
-        file.write(response.content)
+    response = get(url)
+    if response.status_code == 200:
+        with open(file_name, "wb") as file:
+            file.write(response.content)
+        print(f"[OK] Файл '{file_name}' успешно загружен.")
+    else:
+        print(f"[Ошибка] Не удалось скачать файл. Код состояния: {response.status_code}")
 
 download(url_test, file_name_test)
 
-# Extract the archive.
-file = tarfile.open('nginx.log.tar.gz')
-file.extractall('./')
-file.close()
+# Распаковка архива
+with tarfile.open(file_name_test, 'r:gz') as tar:
+    tar.extractall('./')
+    print("[OK] Архив распакован.")
 
-# Importing the log.
-with open('nginx.log', 'r') as file:
+# Чтение лог-файла
+log_file_name = 'nginx.log'
+with open(log_file_name, 'r') as file:
     lines = file.readlines()
 
-# Log analysis.
-for line in range(10):
-    print(f"(line): {lines[line]}")
+# Просмотр первых 10 строк лога
+print("Первые 10 строк лога:")
+for i in range(min(10, len(lines))):
+    print(f"({i+1}): {lines[i].strip()}")
 
-# Количество строк в логе.
-len(lines)
+# Количество строк в логе
+print(f"\n[INFO] Всего строк в логе: {len(lines)}")
 
-# Подсчет ip адресов.
-ip_adresses = {}
-for line in range(len(lines)):
-    current_ip = lines[line].split(" - - ")[0]
-    if current_ip in ip_adresses:
-        ip_adresses[current_ip] += 1
-    else:
-        ip_adresses[current_ip] = 1
+# Подсчет IP-адресов
+ip_addresses = {}
+for line in lines:
+    if " - - " in line:
+        current_ip = line.split(" - - ")[0]
+        ip_addresses[current_ip] = ip_addresses.get(current_ip, 0) + 1
 
-len(ip_adresses)
+print(f"[INFO] Уникальных IP-адресов: {len(ip_addresses)}")
 
-df = pd.DataFrame.from_dict(ip_adresses,orient='index')
-df.head()
-df.to_csv("./result.txt",sep=":")
-df.sort_index()
+# Создание DataFrame и сортировка
+df = pd.DataFrame(list(ip_addresses.items()), columns=["IP", "Количество"])
+df_sorted = df.sort_values(by="Количество", ascending=False)
 
+# Сохранение в файл
+df_sorted.to_csv("result.txt", sep=":", index=False)
+print("[OK] Результаты сохранены в 'result.txt'")

@@ -16,8 +16,7 @@ def main():
 # Функция sum принимает два числовых аргумента
 # и возвращает суммух этих аргументов.
 def sum(num1, num2):
-    result = num1 + num2
-    return result
+    return num1 + num2
 
 # Вызвать главную фуекцию.
 main()

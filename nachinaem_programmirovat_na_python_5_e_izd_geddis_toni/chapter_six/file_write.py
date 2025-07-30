@@ -6,7 +6,7 @@ def main():
 
     # Записать имена трех философов
     # в файл.
-    outfile.write('Джон\n')
+    outfile.write('Джон Локк\n')
     outfile.write('Дэвид Хьюм\n')
     outfile.write('Эдмунд Берг\n')
 

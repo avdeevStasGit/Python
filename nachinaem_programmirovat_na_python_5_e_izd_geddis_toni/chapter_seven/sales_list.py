@@ -13,7 +13,7 @@ def main():
         sales[index] = float(input(f'День # {index + 1}: '))
 
     # Показать введенные значения.
-    print('Вот значения. которые были введены;:')
+    print('Вот значения. которые были введены:')
     for value in sales:
         print(value)
 

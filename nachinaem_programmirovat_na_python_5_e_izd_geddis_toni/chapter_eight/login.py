@@ -23,3 +23,47 @@ def get_login_name(first, last, idnumer):
 
     # Вернуть имя для входа в систему.
     return login_name
+
+
+# Функция valid_password принимает пароль
+# в качестве аргумента и возвращает истину либо ложь,
+# сообщая о его допустимости или недопустимости. Допустимый
+# пароль должен состоять как минимум из 7 символов,
+# иметь как минимум один символ в верхнем регистре,
+# один символ в нижнем регистре
+# и одну цифру.
+
+def valid_password(password):
+    # Назначить булевым переменным значение False.
+    correct_length = False
+    has_uppercase = False
+    has_lowercase = False
+    has_digit = False
+
+    # Приступить к валидации.
+    # Начать с проверки длины пароля.
+    if len(password) >= 7:
+        correct_length = True
+
+        # Проанализировать каждый символ и установить
+        # соответствующий флаг, когда
+        # требуемый символ найден.
+        for ch in password:
+            if ch.isupper():
+                has_uppercase = True
+            if ch.islower():
+                has_lowercase = True
+            if ch.isdigit():
+                has_digit = True
+
+        # Определить, удовлетворены ли все требования.
+        # Если это так, то назначить is_valid значение True.
+        # В противном случае назначить is_valid значение False.
+        if correct_length and has_uppercase and \
+            has_lowercase and has_digit:
+            is_valid = True
+        else:
+            is_valid = False
+
+        # Вернуть переменную is_valid.
+        return is_valid

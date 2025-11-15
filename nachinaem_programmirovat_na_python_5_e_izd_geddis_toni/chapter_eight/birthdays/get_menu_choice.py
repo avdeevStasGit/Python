@@ -1,6 +1,7 @@
 # Функция выводит меню и получает проверенный
 # на допустимость выбранный пользователем пункт.
 
+
 def get_menu_choice():
     print()
     print('Друзья и их дни рождения')
@@ -16,7 +17,7 @@ def get_menu_choice():
     choice = int(input('Введите выбранный пункт: '))
 
     # Проверить выбранный пункт на допустимость.
-    while choice < LOOP_UP or choice > QUIT:
+    while choice < 1 or choice > 5:
         choice = int(input('Введите выбранный пункт: '))
 
     return choice

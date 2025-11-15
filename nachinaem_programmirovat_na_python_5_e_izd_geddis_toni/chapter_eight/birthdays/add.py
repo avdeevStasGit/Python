@@ -11,4 +11,3 @@ def add(birthdays):
         birthdays[name] = bday
     else:
         print('Эта запись уже существует.')
-

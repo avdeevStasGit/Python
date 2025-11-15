@@ -12,3 +12,4 @@ def change(birthdays):
         birthdays[name] = bday
     else:
         print('Это имя не найдено.')
+

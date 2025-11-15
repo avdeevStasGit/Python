@@ -1,3 +1,8 @@
+from get_menu_choice import get_menu_choice
+from add import add
+from change import change
+from delete import delete
+from look_up import look_up
 # Главная функция.
 
 # Эта программа применяет словарь для хранения
@@ -5,7 +10,7 @@
 
 # Глобальные константы для пунктов меню.
 MENU = 0
-LOOCK_UP = 1
+LOOK_UP = 1
 ADD = 2
 CHANGE = 3
 DELETE = 4
@@ -32,3 +37,7 @@ def main():
             change(birthdays)
         elif choice == DELETE:
             delete(birthdays)
+
+# Вызвать главную функцию.
+if __name__ == '__main__':
+    main()

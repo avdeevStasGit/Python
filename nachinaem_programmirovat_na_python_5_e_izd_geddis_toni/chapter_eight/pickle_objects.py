@@ -31,7 +31,7 @@ def save_data(file):
     # их в словаре.
     person['имя'] = input('Имя: ')
     person['возраст'] = int(input('Возраст: '))
-    person['Масса'] = float(input('Масса: '))
+    person['масса'] = float(input('Масса: '))
 
     # Законсервировать словарь.
     pickle.dump(person, file)

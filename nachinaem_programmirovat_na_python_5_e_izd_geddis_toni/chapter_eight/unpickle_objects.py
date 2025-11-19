@@ -33,3 +33,7 @@ def display_data(person):
     print('Возраст:', person['возраст'])
     print('Масса', person['масса'])
     print()
+
+# Вызвать главную функцию.
+if __name__ == '__main__':
+    main()

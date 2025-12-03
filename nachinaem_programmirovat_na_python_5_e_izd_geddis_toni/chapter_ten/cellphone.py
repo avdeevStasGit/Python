@@ -3,7 +3,7 @@
 class CellPhone:
     # Метод __init__ инициализирует атрибуты.
     def __init__(self, manufact, model, price):
-        self.manufact = manufact
+        self.__manufact = manufact
         self.__model = model
         self.__retail_price = price
 

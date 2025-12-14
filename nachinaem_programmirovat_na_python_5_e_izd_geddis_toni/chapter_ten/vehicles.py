@@ -24,10 +24,22 @@ class Automobile:
         return self.__make
 
     def get_model(self):
-        return self.model
+        return self.__model
 
     def get_mileage(self):
         return self.__mileage
 
     def get_price(self):
         return self.__price
+
+class Car(Automobile):
+    def __init__(self, make, model, mileage, price, doors):
+        Automobile.__init__(self, make, model, mileage, price)
+        self.__doors = doors
+
+    def set_doors(self, doors):
+        self.__doors = doors
+
+    def get_doors(self):
+        return self.__doors
+
